@@ -1,0 +1,43 @@
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/userpage"><i class="fa-solid fa-house"></i></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+   
+      <app-search></app-search>
+      </ul>
+      <ul>
+        <app-cart-status></app-cart-status>
+      </ul>
+    </div>
+  </div>
+</nav>
+<router-outlet></router-outlet>
+
+<div class="">
+  <div class="row">
+    <div cl *ngFor="let car of cars" class="col-4 card m-4" style="width: 18rem;">
+
+      <img src="{{car.imageUrl}}" class="card-img-top" alt="...">
+
+      <div class="card-body">
+        <h5 class="card-title"><b> {{car.model}}</b></h5>
+        <p class="card-text">Color : {{car.color}}</p>
+      </div>
+
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><b>Available Status : {{car.availablestatus}} </b></li>
+        <li class="list-group-item"><b>Registration Number : {{car.numberPlate}}</b></li>
+        <li class="list-group-item"><b>Price Per Day : {{car.price_per_day}}</b></li>
+      </ul>
+      <div class="card-body">
+        <button (click)="addToCart(car)" class="btn btn-primary btn-sm">addToBook</button>
+      </div>
+    </div>
+  </div>

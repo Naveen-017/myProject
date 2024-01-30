@@ -1,0 +1,139 @@
+<div class="container justify-content-center col-6">
+    <h2>ADD CAR DETAILS</h2>
+    <hr>
+    <form [formGroup]="carFormGroup" (ngSubmit)="addCar()">
+        <!--Car Model-->
+        <div class="mb-3">
+            <label class="form-label">Car Model</label>
+            <input type="text" class="form-control" formControlName="model" />
+            <div *ngIf="
+            carFormGroup.controls['model'].touched ||
+            carFormGroup.controls['model'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['model'].errors?.['required']"
+                >
+                Model name is required</div>
+            </div>
+           
+        </div>
+
+        <!--Color-->
+        <div class="mb-3">
+            <label class="form-label">Car color</label>
+            <input type="text" class="form-control" formControlName="color" />
+            <div *ngIf="
+            carFormGroup.controls['color'].touched ||
+            carFormGroup.controls['color'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['color'].errors?.['required']"
+                >
+                Car Color is required</div>
+                
+               
+            </div>
+        </div>
+        <!--Manufactured year-->
+        <div class="mb-3">
+            <label class="form-label">Manufactured year</label>
+            <input type="number" class="form-control" formControlName="year" />
+            <div *ngIf="
+            carFormGroup.controls['year'].touched ||
+            carFormGroup.controls['year'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['year'].errors?.['required']"
+                >
+                Manufactured year is required</div>
+            </div>
+        </div>
+        <!--ImageUrl-->
+        <div class="mb-3">
+            <label class="form-label">ImageUrl</label>
+            <input type="text" class="form-control" formControlName="imageUrl" />
+            <div *ngIf="
+            carFormGroup.controls['imageUrl'].touched ||
+            carFormGroup.controls['imageUrl'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['imageUrl'].errors?.['required']"
+                >
+                ImageUrl is required</div>
+            
+            </div>
+
+        </div>
+
+<!-- AvailableStatus-->
+
+        <div class="mb-3">
+            <label class="form-label">AvailableStatus</label>
+            <input type="text" class="form-control" formControlName="availablestatus" />
+            <div *ngIf="
+            carFormGroup.controls['availablestatus'].touched ||
+            carFormGroup.controls['availablestatus'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['availablestatus'].errors?.['required']"
+                >
+                availablestatus is required</div>
+            </div>
+        </div>
+
+        <!-- Capacity of car-->
+
+        <div class="mb-3">
+            <label class="form-label">Capacity</label>
+            <input type="text" class="form-control" formControlName="capacity" />
+            <div *ngIf="
+            carFormGroup.controls['capacity'].touched ||
+            carFormGroup.controls['capacity'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['capacity'].errors?.['required']"
+                >
+                AvailableStatus is required</div>
+            </div>
+        </div>
+
+
+        <div class="mb-3">
+            <label class="form-label">Car Registration Number</label>
+            <input type="text" class="form-control" formControlName="numberPlate" />
+            <div *ngIf="
+            carFormGroup.controls['numberPlate'].touched ||
+            carFormGroup.controls['numberPlate'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['numberPlate'].errors?.['required']"
+                >
+                AvailableStatus is required</div>
+            </div>
+        </div>
+
+
+
+        
+        <div class="mb-3">
+            <label class="form-label">Price</label>
+            <input type="text" class="form-control" formControlName="price_per_day" />
+            <div *ngIf="
+            carFormGroup.controls['price_per_day'].touched ||
+            carFormGroup.controls['price_per_day'].dirty
+            ">
+                <div class="alert alert-danger"
+                *ngIf="carFormGroup.controls['price_per_day'].errors?.['required']"
+                >
+                Price is required</div>
+            </div>
+        </div>
+
+
+
+        <div class="mb-3">
+            <input type="submit" value="Add Car" class="btn btn-primary" [disabled]="carFormGroup.invalid" />
+        </div>
+
+    </form>
+</div>

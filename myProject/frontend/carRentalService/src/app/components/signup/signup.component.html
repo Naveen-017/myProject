@@ -1,0 +1,131 @@
+
+<div class="id">
+<div class="container justify-content-center col-6">
+    <h2>Sign Up</h2>
+    <hr />
+    <form [formGroup]="userForm" (ngSubmit)="createUser()">
+        <!--User Name control-->
+        <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="firstName" />
+            <div *ngIf="
+            userForm.controls['firstName'].dirty ||
+            userForm.controls['firstName'].touched
+          ">
+                <div class="alert alert-danger" *ngIf="userForm.controls['firstName'].errors?.['required']">
+                    Employee name is required
+                </div>
+                <div class="alert alert-danger" *ngIf="userForm.controls['firstName'].errors?.['pattern']">
+                    firstName is invalid. Only alpphabets are allowed
+                </div>
+            </div>
+        </div>
+
+        <!--lastName-->
+        <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="lastName" />
+            <div *ngIf="
+            userForm.controls['lastName'].dirty ||
+            userForm.controls['lastName'].touched
+          ">
+                <div class="alert alert-danger" *ngIf="userForm.controls['lastName'].errors?.['required']">
+                    Employee name is required
+                </div>
+                <div class="alert alert-danger" *ngIf="userForm.controls['lastName'].errors?.['pattern']">
+                    lastName is invalid. Only alpphabets are allowed
+                </div>
+            </div>
+        </div>
+        <!--gender-->
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <input type="text" class="form-control" formControlName="gender" />
+            <div *ngIf="
+            userForm.controls['gender'].dirty ||
+            userForm.controls['gender'].touched
+          ">
+                <div class="alert alert-danger" *ngIf="userForm.controls['gender'].errors?.['required']">
+                    Employee name is required
+                </div>
+                <div class="alert alert-danger" *ngIf="userForm.controls['gender'].errors?.['pattern']">
+                    gender is invalid. Only alpphabets are allowed
+                </div>
+            </div>
+
+        </div>
+        <!--User Email control-->
+        <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="text" class="form-control" formControlName="email" />
+            <div *ngIf="
+            userForm.controls['email'].dirty ||
+            userForm.controls['email'].touched
+          ">
+                <div class="alert alert-danger" *ngIf="userForm.controls['email'].errors?.['required']">
+                    Employee email is required
+                </div>
+                <div class="alert alert-danger" *ngIf="userForm.controls['email'].errors?.['email']">
+                    Employee email is invalid.
+                </div>
+            </div>
+        </div>
+
+        <!--User Mobile control-->
+        <div class="mb-3">
+            <label class="form-label">Mobile</label>
+            <input type="text" class="form-control" formControlName="mobileNumber" />
+            <div *ngIf="
+            userForm.controls['mobileNumber'].dirty ||
+            userForm.controls['mobileNumber'].touched
+          ">
+                <div class="alert alert-danger" *ngIf="userForm.controls['mobileNumber'].errors?.['required']">
+                    Employee mobile is required
+                </div>
+                <div class="alert alert-danger" *ngIf="userForm.controls['mobileNumber'].errors?.['pattern']">
+                    Employee mobile is invalid.
+                </div>
+            </div>
+        </div>
+
+        <!--Address control-->
+        <div class="mb-3">
+            <label class="form-label">Address</label>
+            <input type="text" class="form-control" formControlName="address" />
+            <div *ngIf="
+            userForm.controls['address'].dirty ||
+            userForm.controls['address'].touched
+          ">
+                <div class="alert alert-danger" *ngIf="userForm.controls['address'].errors?.['required']">
+                    Employee name is required
+                </div>
+                <div class="alert alert-danger" *ngIf="userForm.controls['address'].errors?.['pattern']">
+                    address is invalid. Only alpphabets are allowed
+                </div>
+            </div>
+
+        </div>
+            <!--password-->
+
+            <div class="mb-3">
+                <label class="form-label">Password</label>
+                <input type="text" class="form-control" formControlName="password" />
+                <div *ngIf="
+                userForm.controls['password'].dirty ||
+                userForm.controls['password'].touched
+              ">
+                    <div class="alert alert-danger" *ngIf="userForm.controls['password'].errors?.['required']">
+                        Employee name is required
+                    </div>
+                    <div class="alert alert-danger" *ngIf="userForm.controls['password'].errors?.['pattern']">
+                        password is invalid. Only alpphabets are allowed
+                    </div>
+                </div>
+
+            </div>
+            <input type="submit" value="submit" [disabled]="userForm.invalid" class="btn btn-primary" />
+
+           
+    </form>
+</div>
+</div>

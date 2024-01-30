@@ -1,0 +1,49 @@
+
+
+
+
+
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" 
+    href="#"
+     role="button"
+      data-bs-toggle="dropdown"
+       aria-expanded="false">
+     <b >Categories</b>
+    </a>
+    <ul class="dropdown-menu">
+      <li *ngFor="let carCategory of carCategories"><a class="dropdown-item"
+         routerLink="/category/{{carCategory.categoryId}}">
+        {{ carCategory.categoryName }}
+      </a>
+    </li>
+     
+      <li><hr class="dropdown-divider"></li>
+         </ul>
+  </li>
+
+ 
+ 
+  
+ <!--- <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" 
+    href="#"
+     role="button"
+      data-bs-toggle="dropdown"
+       aria-expanded="false">
+      Categories
+    </a>
+    <ul class="dropdown-menu">
+      <li *ngFor="let carCategory of carCategories"><a class="dropdown-item"
+         routerLink="/category/{{carCategory.categoryId}}">
+        {{ carCategory.categoryName }}
+      </a>
+    </li>
+     
+      <li><hr class="dropdown-divider"></li>
+         </ul>
+  </li>-->
+ 
+
+
+  

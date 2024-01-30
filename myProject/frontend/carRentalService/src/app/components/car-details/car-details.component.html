@@ -1,0 +1,16 @@
+<div class="container-fluid mt-5 pt-5">
+    <div class="row justify-contet-center">
+
+        <div class="col-4">
+            <img [src]="car.imageUrl" [alt]="car.imageUrl" width="200px"/>
+        </div>
+
+        <div class="col-4">
+            <h3>{{car.model}}</h3>
+            <p>{{car.year}}</p>
+            <p>{{car.price_per_day| currency : "INR"}}</p>
+            <button (click)="addToCart(car)" class="btn btn-primary btn-sm">addToBook</button>
+        </div>
+    </div>
+</div>
+

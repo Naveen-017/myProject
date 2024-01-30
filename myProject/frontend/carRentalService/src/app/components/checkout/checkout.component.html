@@ -1,0 +1,219 @@
+<div class="container-fluid pt-3 mt-3">
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <form [formGroup]="checkoutFormGroup" (ngSubmit)="onSubmit()">
+                <!-- customer -->
+                <div formGroupName="customer">
+                    <h2>Customer Details:</h2>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> First Name :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="first name"
+                                formControlName="firstName">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Last Name :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="last name" formControlName="lastName">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Email :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="email" formControlName="email">
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+                <!-- end of customer -->
+                <!-- shipping address -->
+                <div formGroupName="shippingAddress">
+                    <h2>shipping Address:</h2>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Country</label>
+                        <div class="col-8">
+                            <select name="country" formControlName="country" class="form-control">
+                                <option value="INDIA">INDIA</option>
+                                <option value="US">United States</option>
+                                <option value="UK">UK</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">States</label>
+                        <div class="col-8">
+                            <select name="state" formControlName="state" class="form-control">
+                                <option value="TS">TS</option>
+                                <option value="AP">AP</option>
+                                <option value="TN">TN</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Street :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Street" formControlName="street">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> City :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="City" formControlName="city">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Zipcode :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Zipcode" formControlName="zipCode">
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end of shipping address -->
+                <div class="form-check">
+                    <label>
+                        <input type="checkbox" class="form-check-input" (change)="copyShippingAddressToBillingAddress($event)">
+                        billing address is same as shipping
+                    </label>
+
+                </div>
+                <!-- billing address -->
+                <div formGroupName="billingAddress">
+                    <h2>Billing Address:</h2>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">Country</label>
+                        <div class="col-8">
+                            <select name="country" formControlName="country" class="form-control">
+                                <option value="INDIA">INDIA</option>
+                                <option value="US">United States</option>
+                                <option value="UK">UK</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label">States</label>
+                        <div class="col-8">
+                            <select name="state" formControlName="state" class="form-control">
+                                <option value="TS">TS</option>
+                                <option value="AP">AP</option>
+                                <option value="TN">TN</option>
+                            </select>
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Street :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Street" formControlName="street">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> City :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="City" formControlName="city">
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Zipcode :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" placeholder="Zipcode" formControlName="zipCode">
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- end of billing address -->
+
+                <!-- credit card -->
+                <h2>Credit Card Details:</h2>
+                <div formGroupName="creditCard">
+                    <div class="form-group row">
+
+                        <label for="cardNumber" class="col-2 col-form-label"> Card Type</label>
+                        <div class="col-8">
+                            <select name="cardType" formControlName="cardType" class="form-control">
+                                <option value="Visa">Visa</option>
+                                <option value="MasterCard">MasterCard</option>
+                                <option value="Rupay">Rupay</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> name on card :</label>
+                        <div class="col-8">
+                            <input type="text" class="form-control" formControlName="nameOnCard">
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Card Number:</label>
+                        <div class="col-8">
+                            <input type="number" class="form-control" formControlName="cardNumber">
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> security code :</label>
+                        <div class="col-8">
+                            <input type="number" class="form-control" formControlName="securityCode">
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Expiration Year :</label>
+                        <div class="col-8">
+                            <select name="cardType" formControlName="expirationYear" class="form-control">
+                                <option *ngFor="let year of creditCardYears">
+                                    {{year}}
+                                    </option> 
+                            </select>
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label class="col-2 col-form-label"> Expiration Month :</label>
+                        <div class="col-8">
+                            <select name="cardType" formControlName="expirationMonth" class="form-control">
+                                <option *ngFor="let Month of creditCardMonths">
+                                {{Month}}
+                                </option>
+                                
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- end of credit card -->
+
+                <!-- submint button -->
+                <div>
+                    <input type="submit" class="btn btn-success" value="Purchase">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

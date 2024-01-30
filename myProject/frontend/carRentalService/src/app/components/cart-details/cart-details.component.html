@@ -1,0 +1,64 @@
+<div class="container-fluid mt-5 pt-5">
+
+    <div class="row justify-content-center">
+        <div class="col-8">
+            <div *ngIf="cartItems.length>0">
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <th>SNO.</th>
+                            <th>IMAGE</th>
+                            <th>DETAILS</th>
+                            <th>Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cartItem of cartItems; index as i">
+                            <td>
+                                {{i+1}}
+                            </td>
+                            <td>
+                                <img [src]="cartItem.imageUrl" alt="cartItem.imageUrl" width="150px">
+                            </td>
+                            <td>
+                                <p>Model : {{cartItem.model}}</p>
+                                <p>Available status : {{cartItem.avilablestatus}}</p>
+
+                                <p>Price Per Day : {{cartItem.price_per_day| currency:"INR"}}</p>
+
+                            </td>
+                            <td>
+                                <p>DaysRented: {{cartItem.quantity}} Days</p>
+                                <div>
+                                    <button class="btn btn-primary btn-sm mx-2"
+                                        (click)="incrementQuantity((cartItem))"><i
+                                            class="fa-solid fa-plus"></i></button>
+
+                                    <button class="btn btn-primary btn-sm mx-2"
+                                        (click)="decrementQuantity((cartItem))"><i
+                                            class="fa-solid fa-minus fa-beat-fade"></i></button>
+                                </div>
+                                <p>Subtotal: {{cartItem.quantity*cartItem.price_per_day| currency :"INR"}}
+                                </p>
+                                <button class="btn" (click)="remove(cartItem)">
+                                    <i class="fa-solid fa-trash fa-beat" style="color: #db1a40;"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3"></td>
+                            <td style="font-weight: bold;">
+
+                                <p>Total Price:{{totalPrice |currency:"INR"}}</p>
+                                <a routerLink="/checkout" class="btn btn-success">Checkout</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div *ngIf="cartItems.length==0" class="alert alert-warning">
+                Cart is empty</div>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+
+
+<form class="d-flex" role="search">
+    <input
+      class="form-control me-2"
+      type="search"
+      #myInput
+      placeholder="Search for cars..."
+      aria-label="Search"
+      (input)="doSearch(myInput.value)"
+    />
+  </form>
